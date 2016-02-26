@@ -35,7 +35,7 @@ app.get('/style.js', function(request, response){
 
 app.get('/sf2hf-blanka.gif', function(request, response){
 	fs.readFile('sf2hf-blanka.gif', 'utf8', function (errors, contents){
-            response.writeHead(200, {'Content-Type': 'image/gif'});  // send data about response
+            response.writeHead(200, {'Content-Type': 'image/*'});  // send data about response
             response.write(contents);  //  send response body
             response.end(); // finished!
         });
@@ -43,7 +43,7 @@ app.get('/sf2hf-blanka.gif', function(request, response){
 
 app.get('/steetfighter_sprite.png', function(request, response){
 	fs.readFile('steetfighter_sprite.png', 'utf8', function (errors, contents){
-            response.writeHead(200, {'Content-Type': 'image/png'});  // send data about response
+            response.writeHead(200, {'Content-Type': 'image/*'});  // send data about response
             response.write(contents);  //  send response body
             response.end(); // finished!
         });
