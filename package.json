@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/arora26shruti/Street-Fighter-Game/issues"
   },
-  "homepage": "https://github.com/arora26shruti/Street-Fighter-Game#readme"
+  "homepage": "https://github.com/arora26shruti/Street-Fighter-Game#readme",
+  "dependencies": {
+    "express": "^4.13.4"
+  }
 }
