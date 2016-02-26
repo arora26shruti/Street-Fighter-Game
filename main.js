@@ -24,8 +24,8 @@ app.get('/style.css', function(request, response){
 });
 
 
-app.get('/style.js', function(request, response){
-	fs.readFile('style.js', 'utf8', function (errors, contents){
+app.get('/script.js', function(request, response){
+	fs.readFile('script.js', 'utf8', function (errors, contents){
             response.writeHead(200, {'Content-Type': 'text/javascript'});  // send data about response
             response.write(contents);  //  send response body
             response.end(); // finished!
@@ -35,7 +35,6 @@ app.get('/style.js', function(request, response){
 
 app.get('/sf2hf-blanka.gif', function(request, response){
 	fs.readFile('sf2hf-blanka.gif', 'utf8', function (errors, contents){
-            response.writeHead(200, {'Content-Type': 'image/*'});  // send data about response
             response.write(contents);  //  send response body
             response.end(); // finished!
         });
@@ -43,7 +42,6 @@ app.get('/sf2hf-blanka.gif', function(request, response){
 
 app.get('/steetfighter_sprite.png', function(request, response){
 	fs.readFile('steetfighter_sprite.png', 'utf8', function (errors, contents){
-            response.writeHead(200, {'Content-Type': 'image/*'});  // send data about response
             response.write(contents);  //  send response body
             response.end(); // finished!
         });
