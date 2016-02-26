@@ -41,6 +41,14 @@ app.get('/sf2hf-blanka.gif', function(request, response){
         });
 });
 
+app.get('/steetfighter_sprite.png', function(request, response){
+	fs.readFile('steetfighter_sprite.png', 'utf8', function (errors, contents){
+            response.writeHead(200, {'Content-Type': 'image/png'});  // send data about response
+            response.write(contents);  //  send response body
+            response.end(); // finished!
+        });
+});
+
 app.listen(app.get('port'), function(){
  console.log("listening on port ", app.get('port'));
 });
