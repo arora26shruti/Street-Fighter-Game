@@ -1,0 +1,75 @@
+body{
+		background-color: grey;
+	}
+	#background{
+		background:url('sf2hf-blanka.gif');
+		min-height:224px;
+		width:621px;
+		border: 10px black solid;
+	}
+	#character1{
+		background:url('steetFighter_sprite.png');
+		position:absolute;
+		top:140px;
+		left:70px;
+		width:70px;
+		height:80px;
+		background-position: 0px -80px;
+	}
+	#character2{
+		background:url('steetFighter_sprite.png');
+		position:absolute;
+		top:140px;
+		left:500px;
+		width:70px;
+		height:80px;
+		background-position: 0px -80px;
+		transform: scaleX(-1);
+	}
+
+	#score1{
+		position: absolute;
+	    top: 26px;
+	    left: 46px;
+	    width: 239px;
+	    height: 27px;
+	    border-radius: 5px;
+	    background-color: yellow;
+	    border: 1px solid black;
+	    padding:4px;
+
+	}
+	#score2{
+		position: absolute;
+	    top: 25px;
+	    left: 365px;
+	    width: 239;
+	    height: 27;
+	    border-radius: 5px;
+	    background-color: yellow;
+	    border: 1px solid black;
+	    padding:4px;
+	}
+	.Instructions{
+		width:300px;
+		height:250px;
+		background-color: pink;
+		display: inline-block;
+		vertical-align: top;
+	    border-radius: 8px;
+	}
+
+	.keys{
+		width:25px;
+		height:20px;
+		background-color: #000;
+		color:#fff;
+		border-radius: 4px;
+		font-size:12px;
+	    padding-left:15px;
+	    margin-right:3px;
+	}
+
+	.Instructions li div{
+		display: inline-block;
+	}

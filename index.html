@@ -1,175 +1,49 @@
 <html>
 <head>
-	<title>StreetFighter</title>
-	<style>
-	#background{
-		background:url('sf2hf-blanka.gif');
-		min-height:224px;
-		width:621px;
-	}
-	#character1{
-		background:url('steetFighter_sprite.png');
-		position:absolute;
-		top:140px;
-		left:70px;
-		width:70px;
-		height:80px;
-		background-position: 0px -80px;
-	}
-	#character2{
-		background:url('steetFighter_sprite.png');
-		position:absolute;
-		top:140px;
-		left:500px;
-		width:70px;
-		height:80px;
-		background-position: 0px -80px;
-		transform: scaleX(-1);
-	}
-	#score1{
-		position:absolute;
-		top:20px;
-		left:50px;
-		width:150px;
-		height:12px;
-		background-color:yellow;
-		border:1px solid black;
-	}
-	#score2{
-		position:absolute;
-		top:20px;
-		left:420px;
-		width:150px;
-		height:12px;
-		background-color:green;
-		border:1px solid black;
-	}
-
-	</style>
+	<title>Street Fighter</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
 
 	<div id='background'>
-		<div id='score1'>Player1 :0</div>
-		<div id='score2'>Player2 :0</div>
+		<div id='score1'>Player1</div>
+		<div id='score2'>Player2</div>
 	</div>
+
 	<div id='character1'></div>
 	<div id='character2'></div>
+	<h1>Street Fighter</h1>
 
 
-	<h1>Homework</h1>
+	<div class="Instructions">
+	  <ul> <strong>Player1 </strong><br>
+		<li>KeyBoard Left-Side </li>
+	    <li><div class="keys">W</div><div>RoundKick</div></li>
+	    <li><div class="keys">A</div><div>Punch</div></li>
+	   	<li><div class="keys">S </div><div>Aragyen</div></li>
+	   	<li><div class="keys">D </div><div>Kick</div></li>
+	   	<li><div class="keys">Z </div><div>Left Movement</div></li>
+	   	<li><div class="keys">X </div><div>Right Movement</div></li>
+	   	<li><div class="keys">C </div><div>Down</div></li>
+	    <li>Spacebar-Jump</li>
+	  </ul>
+	</div>
 
-	<ul>
-		<!-- <li>Get punch and kick to work</li> -->
-		<li>Get the 2nd player to move</li>
-		<!-- <li>Get the players to jump up/down</li> -->
-		<li>Finish the score system</li>
-		<!-- <li>Display game over</li> -->
-		<!-- <li>(Extra point)Get Arugyen to work!!!</li> -->
-	</ul>
+	<div class="Instructions">
+	  <ul><strong>Player2</strong><br>
+		<li>KeyBoard Right-Side</li>  
 
-	<script>
-//Indexes of Sprite Sheet(x-ROWS , y - COLUMNS) 
-	var mapping = {
-		arugyen: {y: 0, x: [0,1,2,3]},
-		walk: {y: 1, x: [0,1,2,3]},
-		punch:{y:2, x:[0,1,2]},
-		kick:{y:6, x:[0,1,2,3,4]},
-		roundkick: {y: 7, x: [0,1,2,3,4]},
-		jumpingUp:{y: 8, x: [0,1,2,3,4,5,6]},
-		sit:{y:9, x:[0]}
-	}
-// OBJECT player1 ; x(left)-70, y(top)-140
-	var player1 = {
-		x: 70, y:140, step:0, action: "walk", health:100
-	}
+	    <li><div class="keys">U</div><div>RoundKick</div></li>
+	    <li><div class="keys">H </div><div>Punch</div></li>
+	    <li><div class="keys">J  </div><div>Aragyen</div></li>
+	    <li><div class="keys">K </div><div>Kick</div></li>
+	    <li><div class="keys"> < </div><div>Left Arrow</div></li>
+	    <li><div class="keys"> > </div><div>Right Arrow</div></li>
+	    <li><div class="keys"> ^ </div><div>Up Arrow</div></li>
+	    <li><div class="keys"> V </div><div>Down Arrow</div></li>
 
-// OBJECT player2 ;  x(left)-500, y(top)-140
-	var player2 = {
-		x: 500, y:140, step:0, action: "walk", health:100
-	}
-//POSITION 
-	function drawPlayers(){
-		document.getElementById('character1').style.top = player1.y;
-		document.getElementById('character1').style.left = player1.x;
-		document.getElementById('character2').style.top = player2.y;
-		document.getElementById('character2').style.left = player2.x;
-
-		//FOR CSS- Converting Array Indexes into exact dimensions of the Character Object
-		// Change Position of Background Image - 70 width and 80 height of the Object
-		document.getElementById('character1').style.backgroundPosition = "-"+(player1.step*70)+"px -"+(mapping[player1.action].y*80)+"px";
-		
-		player1.step++;  
-		if(player1.step >= mapping[player1.action].x.length) { 
-			player1.step = 0; 
-			player1.action = 'walk'; 
-		}
-	}
-
-
-	
-	function detectCollision(){
-		if(Math.abs(player1.x-player2.x) < 40){
-			if(player1.action == 'roundkick'|| player1.action == 'punch'|| player1.action == 'kick' || player1.action == 'arugyen'){
-				player2.health -=10;
-				updateHealth();
-				detectNoHealth();
-			}
-		}
-	}
-
-	//Game Over
-	function detectNoHealth(){
-		if (player1.health == 0 || player2.health ==0){
-			alert('Game Over');
-		}
-	}
-
-
-
-	function updateHealth(){
-		document.getElementById('score1').style.width = player1.health*1.5;
-		document.getElementById('score2').style.width = player2.health*1.5;
-	}
-
-	function gameLoop(){
-		drawPlayers();
-		detectCollision();
-	}
-	setInterval(gameLoop, 200);
-
-	document.onkeydown = function(e) {
-		if(e.keyCode == 37){         //Left KeyPad
-			player1.x-=10;
-		} 
-		else if(e.keyCode == 39){    //Right KeyPad
-		player1.x+=10;
-		} 
-		else if(e.keyCode == 65){
-		player1.action = 'roundkick' //A
-		} 
-		else if(e.keyCode == 83){
-		player1.action = 'arugyen'   //S 
-		}
-		else if(e.keyCode == 38){
-		player1.action = 'jumpingUp' //Upkeypad
-		}
-		else if(e.keyCode == 40){    //DownKeypad
-		player1.action = 'sit'
-		}
-		else if(e.keyCode == 68){   //D
-		player1.action = 'punch'
-		}
-		else if(e.keyCode == 87){   //W
-		player1.action = 'kick'  
-		}
-	console.log('you pressed', e.keyCode);
-	}
-
-
-
-
-	</script>
+	  </ul>
+    </div>
 
 </body>
 </html>
