@@ -8,7 +8,7 @@ body{
 		border: 10px black solid;
 	}
 	#character1{
-		background:url('steetFighter_sprite.png');
+		background:url('steetfighter_sprite');
 		position:absolute;
 		top:140px;
 		left:70px;
@@ -17,7 +17,7 @@ body{
 		background-position: 0px -80px;
 	}
 	#character2{
-		background:url('steetFighter_sprite.png');
+		background:url('steetfighter_sprite');
 		position:absolute;
 		top:140px;
 		left:500px;
