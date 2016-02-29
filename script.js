@@ -11,13 +11,13 @@
 	}
 
 	var action_sprite = {
-		arugyen:   "steetFighter_sprite.png",
-		walk:      "steetFighter_sprite.png",
-		punch:     "steetFighter_sprite.png",
-		kick:      "steetFighter_sprite.png",
-		roundkick: "steetFighter_sprite.png",
-		jumpingUp: "steetFighter_sprite.png",
-		sit:       "steetFighter_sprite.png",
+		arugyen:   "steetfighter_sprite.png",
+		walk:      "steetfighter_sprite.png",
+		punch:     "steetfighter_sprite.png",
+		kick:      "steetfighter_sprite.png",
+		roundkick: "steetfighter_sprite.png",
+		jumpingUp: "steetfighter_sprite.png",
+		sit:       "steetfighter_sprite.png",
 		newFeature : "ken-tatsumaki-senpuu-kyaku.png"
 	}
 
