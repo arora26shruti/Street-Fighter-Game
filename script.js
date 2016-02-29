@@ -7,7 +7,21 @@
 		roundkick: {y: 7, x: [0,1,2,3,4]},
 		jumpingUp:{y: 8, x: [0,1,2,3,4,5,6]},
 		sit:{y:9, x:[0]},
+		newFeature : {y :0, x : [0,1,2,3,4,5,6]}
 	}
+
+	var action_sprite = {
+		arugyen:   "steetFighter_sprite.png",
+		walk:      "steetFighter_sprite.png",
+		punch:     "steetFighter_sprite.png",
+		kick:      "steetFighter_sprite.png",
+		roundkick: "steetFighter_sprite.png",
+		jumpingUp: "steetFighter_sprite.png",
+		sit:       "steetFighter_sprite.png",
+		newFeature : "ken-tatsumaki-senpuu-kyaku.png"
+	}
+
+	// 
 
 
 // OBJECT player1 ; x(left)-70, y(top)-140
@@ -25,6 +39,10 @@
 		document.getElementById('character1').style.left = player1.x;
 		document.getElementById('character2').style.top = player2.y;
 		document.getElementById('character2').style.left = player2.x;
+
+
+       document.getElementById('character1').style.background = 'url("'+action_sprite[player1.action]+'")'
+       document.getElementById('character2').style.background = 'url("'+action_sprite[player2.action]+'")'
 
 		//FOR CSS- Converting Array Indexes into exact dimensions of the Character Object
 		// Change Position of Background Image - 70 width and 80 height of the Object
